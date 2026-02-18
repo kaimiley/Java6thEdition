@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CR Hotel Itemizer</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <h1>CR Hotel Itemizer</h1>
+    <label for="folioFile">Hotel folio PDF</label>
+    <input id="folioFile" type="file" accept="application/pdf" />
+
+    <div class="buttons">
+      <button id="analyzeBtn">Analyze PDF</button>
+      <button id="runBtn" disabled>Run Itemization</button>
+      <button id="pauseBtn">Pause</button>
+      <button id="stopBtn">Stop</button>
+    </div>
+
+    <div class="buttons">
+      <button id="calibrateBtn">Calibration Mode</button>
+      <button id="openOptionsBtn">Options</button>
+    </div>
+
+    <p id="summary"></p>
+    <pre id="preview"></pre>
+
+    <script src="vendor/pdf.min.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

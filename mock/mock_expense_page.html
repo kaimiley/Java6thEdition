@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mock Chrome River Hotel Parent Expense</title>
+    <style>
+      body { font-family: Arial; margin: 20px; }
+      table { border-collapse: collapse; width: 100%; margin-bottom: 10px; }
+      th, td { border: 1px solid #ddd; padding: 8px; }
+      #itemizationList li { margin: 4px 0; }
+      .pill { background:#eef;padding:2px 6px;border-radius:8px; }
+    </style>
+  </head>
+  <body>
+    <h1>Mock Hotel Parent Expense</h1>
+    <label for="parentSpent">Spent</label>
+    <input id="parentSpent" data-testid="spent" aria-label="Spent" value="650.00" />
+
+    <h2>Daily charges</h2>
+    <table>
+      <thead><tr><th>Date</th><th>Description</th><th>Amount</th><th>Action</th></tr></thead>
+      <tbody id="parentRows">
+        <tr><td>2026-01-01</td><td>Room</td><td>200.00</td><td><button data-testid="itemize">Itemize</button></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Itemization editor</h2>
+    <label for="txnDate">Transaction Date</label>
+    <input id="txnDate" data-testid="transaction-date" aria-label="Transaction Date" />
+    <label for="expType">Type</label>
+    <input id="expType" data-testid="expense-type" aria-label="Expense Type" />
+    <label for="amt">Amount</label>
+    <input id="amt" data-testid="amount" aria-label="Amount" />
+    <button id="addBtn">Add Itemization</button>
+
+    <h3>Itemizations (<span id="count" class="pill">0</span>)</h3>
+    <ul id="itemizationList"></ul>
+
+    <button id="doneBtn">Done</button>
+
+    <script>
+      document.querySelectorAll('button[data-testid="itemize"]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.getElementById('txnDate').focus();
+        });
+      });
+      document.getElementById('addBtn').addEventListener('click', () => {
+        const d = document.getElementById('txnDate').value;
+        const t = document.getElementById('expType').value;
+        const a = document.getElementById('amt').value;
+        const li = document.createElement('li');
+        li.textContent = `${d} | ${t} | ${a}`;
+        document.getElementById('itemizationList').appendChild(li);
+        document.getElementById('count').textContent = document.querySelectorAll('#itemizationList li').length;
+      });
+      document.getElementById('doneBtn').addEventListener('click', () => {
+        alert('This should be clicked manually only.');
+      });
+    </script>
+  </body>
+</html>

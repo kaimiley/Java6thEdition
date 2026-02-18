@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CR Itemizer Options</title>
+    <style>
+      body { font-family: Arial; margin: 20px; max-width: 800px; }
+      textarea { width: 100%; min-height: 280px; }
+      input { width: 120px; }
+    </style>
+  </head>
+  <body>
+    <h1>CR Itemizer Options</h1>
+    <label>Tolerance</label>
+    <input id="tolerance" type="number" step="0.01" />
+    <h2>Keyword mapping (JSON)</h2>
+    <textarea id="keywordMappings"></textarea>
+    <h2>Selector Overrides (read-only helper)</h2>
+    <textarea id="selectorOverrides" readonly></textarea>
+    <div>
+      <button id="saveBtn">Save</button>
+      <span id="status"></span>
+    </div>
+    <script src="options.js"></script>
+  </body>
+</html>
